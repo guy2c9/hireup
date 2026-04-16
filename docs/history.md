@@ -82,4 +82,18 @@ Verified all 16 scope creep and 3 borderline tickets. Found 5 tickets softened f
 3. PAYM-262 (Hibiscus release) explicitly excluded by SOW Section 5 Assumption 8
 4. PAYM-334 (custom UI widget) has already been built — flag for commercial reconciliation regardless of classification
 
+### Output — Excel Workbook
+
+Generated `docs/Hireup JIRA Scope Analysis.xlsx` with 5 formatted sheets:
+
+| Sheet | Contents |
+|---|---|
+| Summary | Revised counts (53/19/16), key findings |
+| All Tickets | Master table — all 88 tickets colour-coded (green/red/orange), frozen header, auto-filter |
+| Scope Creep | Filtered view of 19 scope creep tickets with explanations |
+| Borderline | Filtered view of 16 borderline tickets with explanations |
+| Reclassifications | All 23 tickets that changed classification, original → revised with rationale |
+
+Google Sheets version pending — 2cloudnine MCP has read/update/format tools but no create tool. User to create blank sheet for population.
+
 **Repo:** https://github.com/guy2c9/hireup (private)
