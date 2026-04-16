@@ -1,8 +1,10 @@
 # Hireup JIRA Scope Analysis
 
-**Date:** 16 April 2026
+**Date:** 16 April 2026 (Revised)
 **Prepared by:** 2cloudnine
 **Purpose:** Classify each JIRA ticket as either in-scope, scope creep / feature request, or borderline — measured against the SOW (August 2025), Requirements Workbook, Discovery Workbook, RAID Log, and Project Timeline.
+
+> **Revision Note (16 April 2026):** This document was revised following a multi-agent independent review that challenged the initial classifications. Key changes: SOW Gap 2 (Sleepover) wording found to be narrower than initially assessed — 6 sleepover tickets reclassified from in-scope to scope creep. Simplification cluster (PAYM-327–330) reclassified as borderline (rework, not refinement). PAYM-262 (Hibiscus) reclassified as scope creep per SOW Section 5 Assumption 8. **Revised counts: 53 in scope, 19 scope creep, 16 borderline.** The consolidated master table at the end of this document and the Excel workbook (`Hireup JIRA Scope Analysis.xlsx`) reflect the final revised classifications.
 
 ---
 
@@ -477,41 +479,79 @@ These items are related to scope but represent material extensions warranting di
 
 ---
 
-## Summary
+## Summary (Revised)
 
-| Category | Count | % of Total |
-|---|---|---|
-| In Scope | 69 | 71% |
-| Scope Creep / Feature Request | 16 | 16% |
-| Borderline | 3 | 3% |
-| **Total** | **88** | — |
+| Category | Original | Revised | % of Total |
+|---|---|---|---|
+| In Scope | 69 | **53** | 60% |
+| Scope Creep / Feature Request | 16 | **19** | 22% |
+| Borderline | 3 | **16** | 18% |
+| **Total** | **88** | **88** | — |
 
 > **Note:** 9 JIRA items in the export are duplicated or are parent epics that don't represent discrete work. The 88 above represents the unique analysable tickets.
 
-### Scope Creep by Theme
+### Reclassifications (Multi-Agent Review)
+
+| Direction | Count | Tickets |
+|---|---|---|
+| In Scope → Scope Creep | 8 | PAYM-45, PAYM-262, PAYM-312, PAYM-313, PAYM-319, PAYM-324, PAYM-325, PAYM-326 |
+| In Scope → Borderline | 9 | PAYM-232, PAYM-273, PAYM-293, PAYM-327, PAYM-328, PAYM-329, PAYM-330, PAYM-342, PAYM-347 |
+| Scope Creep → Borderline | 5 | PAYM-151, PAYM-311, PAYM-335, PAYM-337, PAYM-358 |
+| Borderline → In Scope | 1 | PAYM-174 |
+
+**Key reclassification rationale:**
+
+1. **SOW Gap 2 (Sleepover) is narrowly worded** — commits to "configure sleepover bookings so compliance hours are at the lower rate" and "understand how to send through sleepovers without any time worked." This does NOT cover minimum sleepover top-ups (IFA-specific), 18+ hour duration edge cases, daily OT interactions, midday-crossing penalties, or new pay codes for the minimum sleepover mechanism.
+
+2. **Simplification cluster (PAYM-327–330) is rework** — the SOW commits to one design-and-build cycle. These tickets represent re-architecture of deliverables that were built once and proved unworkable due to complexity. The original coupling/design was requested by Hireup and delivered by 2cloudnine — unwinding it is a second iteration.
+
+3. **PAYM-262 (Hibiscus) is explicitly excluded** — SOW Section 5 Assumption 8 states "implementation of future product releases are not included." The ticket itself says "not a must have."
+
+4. **PAYM-334 (custom UI widget) has already been built** — regardless of classification, this work has been consumed and should be commercially reconciled.
+
+### Scope Creep by Theme (Revised)
 
 | Theme | Tickets | Est. Impact |
 |---|---|---|
+| **Sleepover Edge Cases / IFA Logic** (6 tickets) | PAYM-45, PAYM-312, PAYM-313, PAYM-319, PAYM-324, PAYM-325 | High — complex engine work beyond SOW Gap 2 wording |
 | **Portable LSL** (3 tickets) | PAYM-159, PAYM-173, PAYM-241 | High — entirely new compliance stream across 5 states |
-| **Custom UI / Widgets** (1 ticket) | PAYM-334 | Medium — custom Salesforce development |
-| **Additional Reports** (2 tickets) | PAYM-98, PAYM-151 | Medium — custom report builds |
-| **Pay Code / GL Additions** (2 tickets) | PAYM-358, PAYM-311 | Medium — new pay categories and GL mappings |
-| **Payslip Email Customisation** (1 ticket) | PAYM-337 | Low-Medium — custom email template |
-| **Slack Integration** (1 ticket) | PAYM-166 | Medium — new integration channel |
-| **Leave Enhancements** (2 tickets) | PAYM-279, PAYM-335 | Medium — FDVL compliance + leave adjustment override |
-| **Operational Items** (2 tickets) | PAYM-354, PAYM-271 | Low (monitoring) to High (min hours solution) |
-| **Documentation / Audit** (2 tickets) | PAYM-280, PAYM-333 | Low-Medium — process documentation and code audit |
+| **Custom UI / Widgets** (1 ticket) | PAYM-334 | Medium — custom Salesforce development (already built) |
+| **Sleepover Pay Codes** (1 ticket) | PAYM-326 | Medium — new pay code for mechanism not in SOW |
+| **Future Release** (1 ticket) | PAYM-262 | Medium — SOW Section 5 explicitly excludes |
+| **Slack Integration** (1 ticket) | PAYM-166 | Medium — new integration, tagged "Nice to have" |
+| **PPT Min Contracted Hours** (1 ticket) | PAYM-271 | High — custom solution design (JIRA acknowledges CR) |
+| **FDVL** (1 ticket) | PAYM-279 | Medium — legislative compliance not in discovery |
+| **GL Report Enhancement** (1 ticket) | PAYM-98 | Medium — dual-location not in DW |
+| **Documentation / Audit** (2 tickets) | PAYM-280, PAYM-333 | Low-Medium — operational docs and code audit |
+| **API Monitoring** (1 ticket) | PAYM-354 | Low — operational monitoring |
+
+### Borderline by Theme (New)
+
+| Theme | Tickets | Notes |
+|---|---|---|
+| **Simplification / Rework** (4 tickets) | PAYM-327, PAYM-328, PAYM-329, PAYM-330 | Rework of initial designs — shared accountability for design decisions |
+| **Sleepover Midday** (2 tickets) | PAYM-187, PAYM-272 | Interim workaround closer to in-scope; permanent fix is scope creep |
+| **Pay Categories Not in DW** (2 tickets) | PAYM-293, PAYM-311 | Import bugs in scope; CAG/PPL categories not in Discovery Workbook |
+| **Custom Automation** (1 ticket) | PAYM-232 | Need arises from in-scope cutoff; implementation is custom scheduled job |
+| **Pay Advice Display** (2 tickets) | PAYM-342, PAYM-337 | Related to in-scope payslip work but extend beyond agreed gap scope |
+| **Leave Loading Defect** (1 ticket) | PAYM-335 | RW says "pay the higher" — may be a config defect, not new requirement |
+| **Training Pay Codes** (1 ticket) | PAYM-358 | RW backs "dedicated codes"; GL mapping is the extension |
+| **Rate Change** (1 ticket) | PAYM-347 | Trivial effort but sets precedent for mid-project business changes |
+| **Reconciliation Report** (1 ticket) | PAYM-151 | Could be training outcome — Hireup builds it after PAYM-299 session |
+| **Sleepover Bug** (1 ticket) | PAYM-273 | Base bug in scope; midnight-crossing expansion is beyond basic config |
 
 ### Recommendations
 
-1. **Portable LSL (PAYM-159, PAYM-173, PAYM-241)** — This is the largest scope creep item. It spans 3 tickets and represents an entirely new compliance stream with 5 state-specific report builds. Should be raised as a formal Change Request.
+1. **Sleepover Edge Cases (PAYM-45, PAYM-312, PAYM-313, PAYM-319, PAYM-324, PAYM-325, PAYM-326)** — The largest scope creep cluster. SOW Gap 2 wording is narrow. All minimum sleepover top-up logic, long-duration edge cases, and OT interactions should be raised as a formal Change Request.
 
-2. **FDVL (PAYM-279)** — Legislative compliance requirement that has specific pay advice suppression rules. Should be raised as a Change Request with clear legislative references.
+2. **Portable LSL (PAYM-159, PAYM-173, PAYM-241)** — Entirely new compliance stream across 5 states. Should be raised as a formal Change Request.
 
-3. **PPT Minimum Contracted Hours (PAYM-271)** — Requires custom solution design for work schedules. Should be scoped and costed separately.
+3. **PAYM-262 (Hibiscus)** — SOW explicitly excludes future product releases. Any work should be a Change Request.
 
-4. **Slack Integration (PAYM-166)** — Already tagged "Nice to have" by the reporter. Should be deferred to post-Go-Live and treated as a separate engagement.
+4. **Simplification Cluster (PAYM-327–330)** — Borderline. Recommend a frank discussion about shared accountability for the design decisions that necessitated rework.
 
-5. **Custom Widget (PAYM-334)** — Custom Salesforce UI development. Should be a Change Request.
+5. **PAYM-334 (Custom Widget)** — Already built. Regardless of classification, should be commercially reconciled.
 
-6. **All scope creep items** should be managed through the formal Change Request process as defined in SOW Section 5, with each item estimated and approved before work commences.
+6. **PPT Minimum Contracted Hours (PAYM-271)** — JIRA comments acknowledge this is "most likely a change request." Should be scoped and costed separately.
+
+7. **All scope creep items** should be managed through the formal Change Request process as defined in SOW Section 5, with each item estimated and approved before work commences.
