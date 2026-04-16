@@ -97,3 +97,87 @@ Generated `docs/Hireup JIRA Scope Analysis.xlsx` with 5 formatted sheets:
 Google Sheets version pending — 2cloudnine MCP has read/update/format tools but no create tool. User to create blank sheet for population.
 
 **Repo:** https://github.com/guy2c9/hireup (private)
+
+## 2026-04-16 — XML-Aligned Deliverables and Commercial Packaging
+
+Follow-up work converted the revised analysis into deliverables aligned strictly to the tickets present in `Downloads/JIRA.xml`.
+
+**Key updates:**
+- Created `docs/jira-ticket-classification-xml.csv` with one row per ticket found in the XML export.
+- Filtered the final table to the `97` tickets actually present in `JIRA.xml`.
+- Preserved the per-ticket fields requested by the user: `Ticket`, `Summary`, `Classification`, `Source References`, and `Explanation`.
+- Created `docs/jira-scope-creep-themes.md` to group the `19` scope-creep / feature-request tickets into commercial Change Request themes.
+
+**Important reconciliation note:**
+- The older workbook `docs/Hireup JIRA Scope Analysis.xlsx` contains `98` ticket rows.
+- The extra ticket is `PAYM-187`, which is present in the older workbook/markdown analysis but **not** in `Downloads/JIRA.xml`.
+- The CSV deliverable intentionally excludes `PAYM-187` so the final output remains faithful to the XML source requested by the user.
+
+**Final XML-aligned counts:**
+
+| Category | Count |
+|---|---:|
+| In Scope | 63 |
+| Scope Creep / Feature Request | 19 |
+| Borderline | 15 |
+| Total XML Tickets | 97 |
+
+**Commercial scope-creep themes packaged for CR discussion:**
+1. Sleepover engine extension — 7 tickets
+2. Portable LSL compliance stream — 3 tickets
+3. Future product release adoption (Hibiscus) — 1 ticket
+4. Minimum contracted hours automation — 1 ticket
+5. FDVL / pay advice compliance — 1 ticket
+6. GL reporting enhancement — 1 ticket
+7. Slack / alerting integration — 1 ticket
+8. Operational tooling / audit / monitoring — 3 tickets
+9. Custom UI for ad hoc timesheet entry — 1 ticket
+
+**Files added:**
+- `docs/jira-ticket-classification-xml.csv`
+- `docs/jira-scope-creep-themes.md`
+
+## 2026-04-17 — Finalised Multi-Agent Review and Commercial Strategy
+
+Follow-up session to finalise the scope analysis with a second multi-agent review pass and produce a clean deliverable.
+
+**Multi-Agent Review (Pass 2) — Three finalisation agents:**
+
+1. **Contractual Defensibility Agent** — Scored all 19 scope creep tickets on a 1–5 defensibility scale, assessed likely client pushback, and estimated commercial value (T-shirt + $ range). Found 7 tickets rock-solid (5/5), 8 strong (4/5), and 4 moderate (3/5).
+
+2. **Borderline Risk Assessment Agent** — Assessed all 15 borderline tickets with lean percentages (% in scope vs out), risk levels, and recommended commercial approach. Triaged into: 5 Absorb, 7 Negotiate, 3 CR.
+
+3. **Commercial Packaging Agent** — Recommended bundling 19 scope creep tickets into 3 Change Requests with negotiation strategy, concession tactics, and timing guidance.
+
+**Commercial Strategy Outputs:**
+
+| CR | Themes | Est. Value |
+|---|---|---|
+| CR-1 | Sleepover Engine Extension (7 tickets) | $20k–$25k |
+| CR-2 | Portable LSL Compliance (3 tickets) | $25k–$35k |
+| CR-3 | Enhancements & Integrations bundle (9 tickets) | $14k–$20k |
+
+| Metric | Low | High |
+|---|---|---|
+| Total scope creep | $44,000 | $59,000 |
+| Net recoverable (after goodwill concessions) | $46,000 | $67,000 |
+| Goodwill investment | $13,000 | $20,000 |
+
+**Key negotiation recommendations:**
+1. Raise CR-1 and CR-2 before PPT2 completes — strongest positions
+2. Absorb 5 borderline tickets as goodwill (~$8–12k) to strengthen credibility
+3. Negotiate 50/50 split on Simplification cluster (327–330) — shared accountability
+4. Offer 10–15% package discount if all 3 CRs approved together
+5. PAYM-334 (custom widget) already built — include in CR-3 at reduced rate
+
+**Google Sheet updated:** `Hireup Commercials - JIRA vs Original Scope`
+- All Tickets tab completed (28 missing rows appended)
+- Scope Creep tab: added defensibility scores, $ estimates, client pushback columns
+- Borderline tab: added lean %, risk level, commercial approach columns
+- Review Findings tab: rewritten with full commercial strategy
+
+**New deliverable:** `docs/Hireup Scope Analysis — Finalised.xlsx` — clean 5-tab workbook with full formatting, colour-coding, and all finalised data. Intended for upload to Google Drive as a replacement for the original sheet.
+
+**Files added/updated:**
+- `docs/Hireup Scope Analysis — Finalised.xlsx` (new)
+- `docs/history.md` (updated)
