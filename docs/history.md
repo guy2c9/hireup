@@ -97,3 +97,42 @@ Generated `docs/Hireup JIRA Scope Analysis.xlsx` with 5 formatted sheets:
 Google Sheets version pending — 2cloudnine MCP has read/update/format tools but no create tool. User to create blank sheet for population.
 
 **Repo:** https://github.com/guy2c9/hireup (private)
+
+## 2026-04-16 — XML-Aligned Deliverables and Commercial Packaging
+
+Follow-up work converted the revised analysis into deliverables aligned strictly to the tickets present in `Downloads/JIRA.xml`.
+
+**Key updates:**
+- Created `docs/jira-ticket-classification-xml.csv` with one row per ticket found in the XML export.
+- Filtered the final table to the `97` tickets actually present in `JIRA.xml`.
+- Preserved the per-ticket fields requested by the user: `Ticket`, `Summary`, `Classification`, `Source References`, and `Explanation`.
+- Created `docs/jira-scope-creep-themes.md` to group the `19` scope-creep / feature-request tickets into commercial Change Request themes.
+
+**Important reconciliation note:**
+- The older workbook `docs/Hireup JIRA Scope Analysis.xlsx` contains `98` ticket rows.
+- The extra ticket is `PAYM-187`, which is present in the older workbook/markdown analysis but **not** in `Downloads/JIRA.xml`.
+- The CSV deliverable intentionally excludes `PAYM-187` so the final output remains faithful to the XML source requested by the user.
+
+**Final XML-aligned counts:**
+
+| Category | Count |
+|---|---:|
+| In Scope | 63 |
+| Scope Creep / Feature Request | 19 |
+| Borderline | 15 |
+| Total XML Tickets | 97 |
+
+**Commercial scope-creep themes packaged for CR discussion:**
+1. Sleepover engine extension — 7 tickets
+2. Portable LSL compliance stream — 3 tickets
+3. Future product release adoption (Hibiscus) — 1 ticket
+4. Minimum contracted hours automation — 1 ticket
+5. FDVL / pay advice compliance — 1 ticket
+6. GL reporting enhancement — 1 ticket
+7. Slack / alerting integration — 1 ticket
+8. Operational tooling / audit / monitoring — 3 tickets
+9. Custom UI for ad hoc timesheet entry — 1 ticket
+
+**Files added:**
+- `docs/jira-ticket-classification-xml.csv`
+- `docs/jira-scope-creep-themes.md`
