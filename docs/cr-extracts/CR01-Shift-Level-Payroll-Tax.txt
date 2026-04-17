@@ -1,0 +1,66 @@
+2cloudnine Change Request
+
+CR01 - Shift-Level Payroll Tax & FP/NFP Cost Item
+
+Prepared by Andrew Humann, 26th November 2025
+
+
+
+2cloudnine - Change Request
+
+Change ID
+CR01
+Change Title
+CR01 - Shift-Level Payroll Tax & FP/NFP Cost Item 
+Requester
+Hireup
+Date
+27/11/25
+Description
+Overview
+
+Hireup’s transition under Project Evolution requires structural changes to how payroll tax is determined and applied. The core challenge is that the current payroll architecture calculates payroll tax from the assignment, which is no longer sufficient for Hireup’s operational model—particularly as workers move between For Profit (FP) and Not For Profit (NFP) work, and across multiple states in a single pay period.
+
+High level actions
+
+	•	Making out-of cycle changes to product for Hireup-only release and associated testing and implementation effort.
+	•	Additional effort for configuration and testing of journal reversal capability.
+
+Product changes required
+
+Enable accurate state-based payroll tax calculations at a shift level, while preserving backward compatibility for customers not adopting this functionality. The solution comprises two major elements: 
+
+	•	Shift-Level Location Field on Time Sheet Entry (TSE):
+	•	A new Location field is added to the TSE object.
+	•	If populated, this shift's location overrides the assignment's location for determining state-based payroll tax rules, making the TSE location the single source of truth for cross-border worker support.
+	•	If blank, the system falls back to the assignment's recorded location, ensuring full backward compatibility.
+
+	•	Paired FP/NFP Employment Cost Item Structure:
+	•	Each state will have two employment cost item configurations: an FP version (applies the relevant state's payroll tax rate) and an NFP version (uses a 0% payroll tax rate).
+	•	The payroll engine will dynamically select the correct cost item based on the shift's classification (FP or NFP) for accurate payroll tax calculation.
+	•	This dual-item structure supports accurate GL journals, paid transaction distributions, and reporting reflecting the FP/NFP distinction.
+Net Impact to
+Schedule
+NIL (No impact on project schedule) if approved by 3/12/25.
+Net Impact to
+Estimated Cost
+	•	The additional development effort will be a flat fee of $10,000 ex GST.
+	•	The additional effort for implementation and testing will be charged on a T&M basis at a rate of $250.00 per hour ex GST. It is estimated approximately 24 hours are required. 
+Total Cost
+$10,000 + ($6,000 T&M) = $16,000 ex. GST
+Alternative
+NIL (No alternative provided as this is a foundational requirement for Project Evolution)
+Invoicing terms 
+Payment will be due upon the formal completion and acceptance of the developed functionality (Shift-Level Payroll Tax & FP/NFP Cost Item), and is payable by Hireup within 14 days from the date of the invoice.
+
+Hireup
+2cloudnine
+Signature:                                   
+Signature:
+Name: 
+Name:  
+Title: 
+Title: 
+Date: 
+Date:  
+

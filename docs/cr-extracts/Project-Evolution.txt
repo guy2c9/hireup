@@ -1,0 +1,120 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Hireup – Project Evolution 2cloudnine Process Changes
+Prepared by Julian McGrath, December 2025
+Purpose
+The purpose of this document is to outline the end-to-end process design supporting shift-level payroll tax determination, For Profit (FP) and Not For Profit (NFP) classification, and associated GL processing required for Hireup’s transition under Project Evolution.
+This document explains how payroll tax is determined at a shift level, how FP and NFP work is differentiated, how state-based payroll tax rules are applied, and how payroll tax impacts are reflected through journals and retrospective adjustments.
+Requirement
+Under Project Evolution, Hireup’s operating and legal entity model requires payroll tax to be calculated based on the actual nature and location of work performed, rather than assignment-level defaults.
+Hireup’s requirements include:
+	•	Determining payroll tax obligations at a shift level
+	•	Supporting workers who perform work across multiple states
+	•	Supporting mixed FP and NFP work within the same assignment and pay period
+	•	Applying payroll tax to FP shifts regardless of assignment defaults
+	•	Supporting State Revenue Office (SRO) rulings that may require payroll tax to apply to all shifts in a month
+	•	Reflecting correct payroll tax outcomes through GL journals, including reversals and corrections
+Assignment-level payroll tax determination alone is insufficient to meet these requirements.
+Solution Overview
+The solution introduces a shift-level payroll tax processing model that integrates payroll calculation and GL processing.
+The design is based on three core principles:
+	•	Shift-level determination of work location and FP/NFP classification
+	•	State-based employment cost items configured separately for FP and NFP work
+	•	Controlled month-end recalculation and journal correction processes
+Together, these elements ensure payroll tax is calculated accurately, reported correctly, and remains auditable throughout Hireup’s Project Evolution transition.
+
+Solution Design
+The solution consists of five coordinated stages:
+	•	Shift-Level Location Determination
+	•	FP / NFP Shift Classification
+	•	Payroll Tax Calculation Using State-Based Employment Cost Items
+	•	Month-End Reclassification & Payroll Tax Recalculation
+	•	GL Journal Generation, Reversal, and Correction
+Each stage is described below.
+Stage 1 – Shift-Level Location Determination
+Purpose
+Stage 1 ensures payroll tax rules are applied based on the actual state in which work was performed.
+Processing Logic
+For each shift:
+	•	If a location is supplied at the timesheet (shift) level, that location is used to determine state-based payroll tax rules
+	•	If no shift-level location is supplied, the system falls back to the assignment’s location
+This maintains backward compatibility while enabling accurate cross-border payroll tax determination.
+Stage 2 – FP / NFP Shift Classification
+Purpose
+Stage 2 determines whether each shift is classified as For Profit (FP) or Not For Profit (NFP) for payroll tax purposes.
+Processing Logic
+For each shift:
+	•	FP/NFP classification is derived using Hireup-defined rules and indicators
+	•	FP shifts are flagged as requiring payroll tax consideration
+	•	NFP shifts are excluded from payroll tax unless overridden by month-end rules
+This supports mixed FP/NFP workloads and occasional FP work within otherwise NFP assignments.
+Stage 3 – Payroll Tax Calculation Using Employment Cost Items
+Purpose
+Stage 3 applies payroll tax using state-based employment cost items that differentiate FP and NFP work.
+Processing Logic
+For each state:
+	•	Two employment cost items exist:
+	•	FP cost item – payroll tax applied at the legislated state rate
+	•	NFP cost item – payroll tax rate set to 0%
+When payroll tax is calculated:
+	•	The system selects the appropriate employment cost item based on:
+	•	The shift’s determined state
+	•	The shift’s FP/NFP classification
+This ensures payroll tax is applied only where required and flows consistently into payroll and GL outputs.
+Stage 4 – Month-End Reclassification & Payroll Tax Recalculation
+Purpose
+Stage 4 supports Hireup’s requirement to reassess payroll tax obligations at month-end, including retrospective recalculation across earlier pay periods in the month.
+Processing Logic
+At the final pay run of the month:
+	•	The system determines which payroll tax calculation mode applies:
+	•	FP-only (payroll tax applies only to FP shifts), or
+	•	Part/All method (payroll tax applies to all shifts, where required by SRO ruling)
+Where recalculation is required:
+	•	All shifts in the month are re-evaluated
+	•	Original payroll tax amounts are compared to recalculated values
+	•	Any differences are identified for adjustment
+This ensures Hireup’s payroll tax liability aligns with regulatory requirements.
+Stage 5 – GL Journal Generation, Reversal & Correction
+Purpose
+Stage 5 ensures that payroll tax outcomes are accurately reflected in Hireup’s general ledger.
+Processing Logic
+When payroll tax recalculation identifies differences:
+	•	Reversal journals are generated to negate previously posted payroll tax amounts
+	•	Correction journals are generated to post updated payroll tax values
+	•	Journals clearly distinguish:
+	•	Original postings
+	•	Reversals
+	•	Corrections
+GL outputs reflect FP/NFP classification, state-based treatment, and the calculation mode applied, ensuring clear auditability.
+Reporting and Auditability
+The solution ensures end-to-end auditability by:
+	•	Retaining FP/NFP classification at a shift level
+	•	Recording payroll tax calculation mode at month-end
+	•	Linking reversal and correction journals to original postings
+	•	Supporting detailed reporting for reconciliation and compliance review
+End-to-End Outcome
+At the completion of the shift-level payroll tax and GL processing flow:
+	•	Payroll tax is calculated accurately per shift
+	•	Cross-border and mixed FP/NFP work is fully supported
+	•	Month-end payroll tax obligations are correctly reassessed
+	•	GL journals accurately reflect payroll tax liabilities
+	•	Hireup’s Project Evolution requirements are met in a controlled, auditable manner
+

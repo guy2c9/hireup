@@ -1,0 +1,72 @@
+2cloudnine Change Request
+
+CR02 - Additional Information in Pay Advices
+
+Prepared by Andrew Humann, 20th January 2026
+
+
+
+2cloudnine - Change Request
+
+Change ID
+CR02
+Change Title
+CR02 – Additional Information in Pay Advices
+Requester
+Hireup
+Date
+20 January 2026
+Description
+Overview
+This Change Request outlines the design and implementation of a custom Pay Advice solution developed by 2cloudnine to meet Hireup’s specific payroll reporting requirements. The solution enhances the standard Pay Advice output by providing a clearer, consolidated, and more informative breakdown of pay details, including shift-level information and consolidated pay rates, while improving the overall presentation and usability of the document. This requirement includes more than display of discretionary allowances and as is significantly more complex than was initially identified from Discovery.
+The custom design ensures that Hireup employees receive Pay Advices that are easier to interpret, accurately reflect how pay has been calculated, and align with Hireup’s existing payroll and award structures.
+High Level Actions
+	•	Design and development of a custom Pay Advice layout tailored to Hireup’s requirements.
+	•	Implementation of new payroll logic to support consolidated pay rate presentation.
+	•	Extension of Pay Advice data sourcing to include shift-level information.
+	•	Redesign of the Pay Advice format to improve clarity, readability, and visual consistency.
+	•	Testing and validation to ensure accuracy of calculations, data presentation, and alignment with Hireup’s payroll rules.
+Product Changes Required
+To support the custom Pay Advice requirements, the solution introduces three key product and design enhancements:
+1. Consolidation of Pay Codes to Present a Single Pay Rate
+New payroll logic has been introduced to consolidate multiple underlying pay components—specifically standard base rates, discretionary allowance, first aid allowance and associated casual loading—into a single consolidated payment line on the Pay Advice.
+	•	Casual loading is programmatically combined with the base rate for display purposes, ensuring employees see one clear, all-inclusive pay rate rather than multiple fragmented lines.
+	•	This consolidation is applied at the Pay Advice level only and does not alter the underlying payroll calculations or accounting treatment.
+	•	The approach satisfies Hireup’s requirement for simplified pay rate visibility while preserving accuracy and traceability within the payroll engine.
+
+
+2. Inclusion of Shift-Level Details in Pay Advice Summaries
+The Pay Advice has been enhanced to draw directly from shift and timesheet data to provide greater transparency into how pay has been calculated.
+	•	Shift-level information, including date and shift times, is displayed within the Pay Advice summary sections.
+	•	Units worked, applicable rates, and total amounts are aligned to the relevant shifts and pay codes.
+	•	This design allows employees to easily reconcile their Pay Advice against their worked shifts, reducing ambiguity and payroll-related enquiries.
+3. Redesigned Pay Advice Layout and Presentation
+The Pay Advice document has been redesigned to deliver a cleaner, more modern, and more readable format than Hireup’s legacy solution.
+	•	Information hierarchy has been improved to clearly separate earnings summaries, shift breakdowns, and totals.
+	•	Redundant or unclear fields have been removed or restructured to reduce visual clutter.
+	•	The overall layout has been designed to improve comprehension for employees while maintaining consistency with Hireup’s branding and communication standards.
+Net Impact to Schedule
+NIL
+
+Net Impact to Estimated Cost
+The additional effort will be charged on T&M basis at a rate of $250.00 per hour ex GST. 
+It is estimated approximately 24 hrs effort at $250 Ex. GST per hour will be needed = $6,000 Ex. GST. 
+Alternative
+Proceed with standard 2cloudnine functionality, which will include a hyperlink in the standard format pay advice. The link will direct the employee to the 2cloudnine community portal and allow them to select the pay advice for which they would view a breakdown.
+Reason for Change
+Additional information required in Pay Advices, which is not available in standard 2cloudnine Product.
+Invoicing terms 
+Payment will be due upon the formal completion and acceptance of the developed functionality (Additional Information in Pay Advices), and is payable by Hireup within 14 days from the date of the invoice.
+
+
+Hireup
+2cloudnine
+Signature:                                   
+Signature:
+Name: 
+Name:  
+Title: 
+Title: 
+Date: 
+Date:  
+
