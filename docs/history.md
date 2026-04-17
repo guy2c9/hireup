@@ -181,3 +181,138 @@ Follow-up session to finalise the scope analysis with a second multi-agent revie
 **Files added/updated:**
 - `docs/Hireup Scope Analysis — Finalised.xlsx` (new)
 - `docs/history.md` (updated)
+
+## Authoritative Deliverable
+
+`docs/Hireup Scope Analysis — Finalised.xlsx` is the **final, authoritative version** for all client-facing and commercial activity.
+
+The other artefacts in `docs/` are working documents from earlier passes and are **superseded**:
+
+| File | Status |
+|---|---|
+| `docs/Hireup Scope Analysis — Finalised.xlsx` | **Authoritative — use this** |
+| `docs/Hireup JIRA Scope Analysis.xlsx` | Superseded (earlier 88/98-row workbook, includes PAYM-187 not in XML) |
+| `docs/jira-scope-analysis.md` | Superseded (53/19/16 counts do not match final 63/19/15 XML-aligned figures; internal inconsistencies in section headings) |
+| `docs/jira-ticket-classification-xml.csv` | Superseded (snapshot of data now reflected in Finalised xlsx) |
+| `docs/jira-scope-creep-themes.md` | Superseded (CR theming consolidated into the Finalised workbook) |
+
+**Final authoritative counts:** 63 In Scope, 19 Scope Creep, 15 Borderline (97 total XML-aligned tickets).
+
+## 2026-04-17 — Hireup Workflow Codified as Reusable MCP Skill
+
+Submitted a new 2cloudnine MCP skill — `scope-management` — that captures the workflow used on Hireup for re-use on future engagements.
+
+**Skill summary (7 steps):**
+1. Ingest scope materials (SOW/DW/RW/RAID/plan/CRs) with an abbreviation table
+2. Ingest the working register — encourages providing the top-level sources (Google Drive folder, JIRA project key + XML, Salesforce engagement) rather than individual files
+3. First-pass classification with specific source citations
+4. Multi-agent independent review (3 agents: contractual strict, non-gap in-scope, scope-creep counter-check)
+5. Commercial packaging into CR themes (defensibility score, $ range, client pushback)
+6. Produce xlsx deliverable (Summary, All Tickets, Scope Creep, Borderline, CR Package, Reclassifications log)
+7. Save outcome via `project_save` — linked to the existing `project-artifacts` skill
+
+**Gotchas baked in (Hireup-derived lessons):**
+- SOW wording is narrower than it feels — cite exact section, not generic references
+- Parent epics vs child tickets — epics are containers, not countable scope creep
+- Future-release exclusions (Assumption 8) — almost always scope creep
+- Already-built scope creep (e.g. PAYM-334) — flag for commercial reconciliation
+- Simplification / rework (e.g. PAYM-327–330) — shared accountability, borderline not in-scope
+- Ticket-count drift across exports (XML vs CSV vs workbook) — name the authoritative source
+- Reporter matters — customer-raised tickets carry more commercial weight than internal ones
+
+**Submission tracking:**
+
+| Item | Pilot Issue |
+|---|---|
+| `scope-management` skill | **ART-2057** |
+| 'project management' domain feature request | **ART-2058** |
+| Output structure / gotcha additions for ART-2057 | **ART-2059** |
+
+Skill filed under `documentation` domain (closest valid fit). ART-2058 requests a new `project management` domain so scope/CR/delivery-governance skills have a proper home. If approved, the skill frontmatter will be updated from `documentation` to `project management`.
+
+### Output Structure Update — ART-2059
+
+After inspecting the two authoritative Hireup workbooks, filed a follow-up against ART-2057 to fold the exact output specification into the skill before delivery. Workbook structure captured:
+
+**Workbook A — Baseline Scope Classification** (file: `{Customer} Scope Analysis — Finalised.xlsx`)
+- Tab 1: Executive Summary (project info, counts, commercial headline)
+- Tab 2: All Tickets — `Ticket | Summary | Type | Status | Priority | Classification | Source References | Explanation`
+- Tab 3: Scope Creep — CR Themes — `Theme | Tickets | Why Out of Scope | Recommended CR Wording | Estimate T-shirt | $ Low | $ High | Defensibility (1–5) | Client Pushback`
+- Tab 4: Borderline — `Ticket | Summary | Lean % In | Lean % Out | Risk Level | Recommended Approach | Rationale`
+- Tab 5: Review Findings — multi-agent outcomes, reclassifications log, commercial strategy
+
+**Workbook B — CR-Aware Commercial Reconciliation** (file: `{Customer} — CR-Aware Commercial Reconciliation.xlsx`)
+- Tab 1: Executive Summary (CR count, totals, risks, carve-outs)
+- Tab 2: CR Register — `CR ID | Title | Status | Date Raised | Date Signed | $ Low | $ High | Agreed $ | Ticket Count | Priority | Contractual Basis | Notes`
+- Tab 3: Ticket–CR Map — `Ticket | Summary | Original Class | Revised Class | Assigned CR | Coverage | Confidence | Rationale | Carve-out Flag`
+- Tab 4: Commercial Actions — `# | Action | Owner | Timing | Status | $ Impact Low | $ Impact High | Dependencies | Notes`
+- Tab 5: Risk Register — `# | Risk | Severity | Linked CR | Mitigation | Owner | Status | Date Identified`
+
+**Formatting rules:** green/red/orange row shading by classification, frozen header + auto-filter, `$` with thousands separator, dates DD/MM/YYYY (AU), British spelling, exact file naming.
+
+**New Gotcha added:** fault-admitting CR language ("Discovery under-scoped") admits 2cloudnine fault under SOW 3.2 — reframe as "emergent requirement during build" (lesson from Hireup CR02).
+
+**Why direct skill update failed:** `skill_authoring_submit` with `skillId` and `skill_authoring_request_update` both returned internal errors — the skill is in the delivery queue, not yet in the live registry. ART-2059 is the path for the delivery team to incorporate during build.
+
+**Why this matters for Hireup specifically:** Any future revisions to the Hireup scope analysis should run through the `scope-management` skill workflow for consistency. When the skill becomes live on the 2cloudnine MCP, invoke it directly rather than ad-hoc repeating the Hireup steps.
+
+## 2026-04-17 — CR-Aware Reconciliation (Pass 3)
+
+Second multi-agent review pass triggered by discovery of three new CR/process documents supplied by Guy:
+- `Hireup CR01 - Shift-Level Payroll Tax & FP_NFP Cost Item.docx` (Andrew Humann, 27/11/2025, $16,000)
+- `Hireup CR02 - Additional Information in Pay Advices.docx` (Andrew Humann, 20/01/2026, $6,000)
+- `Hireup – Project Evolution 2cloudnine Process Changes.docx` (Julian McGrath, December 2025 — 5-stage process design)
+
+**4 independent agents dispatched:**
+
+1. **Agent A — CR01 Ticket Mapping:** Concluded CR01 is **net-new scope**, not capture of existing scope creep. No JIRA ticket in the 97-ticket set references shift-level location or FP/NFP cost items. $16k materially under-priced (true effort $24k–$30k). Existing 3-CR pipeline ($46k–$67k) remains fully live and undiminished.
+
+2. **Agent B — CR02 Ticket Mapping:** Identified PAYM-167, 329, 337, 342, 123 as covered by CR02. Flagged $6k as under-priced (60–100 hrs realistic → $15k–$22.5k). CR02 language "significantly more complex than initially identified from Discovery" is a **contractual gift to Hireup** — Discovery is a 2cloudnine deliverable under SOW 3.2; the phrase admits 2c9 fault.
+
+3. **Agent C — Project Evolution Impact:** Classified the 5 stages. Stages 1–3 covered by CR01. **Stage 4 (month-end reclassification, SRO Part/All toggle) is scope creep. Stage 5 (journal reversal → correction → linkage audit trail) is borderline-leaning-creep**, beyond CR01's passing "journal reversal capability" line. Identified 4 new scope items not in 97-ticket set.
+
+4. **Agent D — Commercial Reconciliation:** Produced revised commercial position. Recommended new **CR-4 Project Evolution Addendum ($31k–$50k)** for Stages 4–5. Ticket reclassifications: PAYM-167 → CR02, PAYM-329 → CR02, PAYM-337 → CR02, PAYM-342 → CR02, PAYM-358 → CR01 template coverage.
+
+**Revised commercial position:**
+
+| Metric | Original | Post-CR | Δ |
+|---|---|---|---|
+| Net Recoverable Low | $46,000 | **$108,000** | +$62,000 |
+| Net Recoverable High | $67,000 | **$142,500** | +$75,500 |
+| % of $170k SOW | 27–39% | **64–84%** | +37pp |
+
+**Breakdown of additional recoverable:**
+- CR01 raised $16,000 (signing pending)
+- CR02 raised $6,000 (recommend rewrite for +$9k–$16.5k uplift)
+- CR-4 Project Evolution Addendum $31k–$50k (new, recommended)
+
+**Top contractual risks surfaced:**
+- CR02 "Discovery under-scoped" language admits 2c9 fault — must be rewritten before signing
+- CR01 "journal reversal capability" could be read broadly to subsume Stage 4–5 — requires covering letter carve-out before countersignature
+- Dec-2025 Project Evolution doc post-dates Nov-2025 CR01 — document as "emergent post-CR" to preserve CR-4 position
+
+**Top 10 commercial actions documented in new deliverable.**
+
+### New Deliverable
+
+`docs/Hireup SCHADS — CR-Aware Commercial Reconciliation.xlsx` — 5-tab formatted workbook supplementing the authoritative Finalised.xlsx (does NOT replace it):
+
+| Tab | Contents |
+|---|---|
+| 1. Executive Summary | Revised commercial position, headline, CR table |
+| 2. CR Register | 7 CRs tracked (CR01, CR02, CR02-Uplift, CR-1, CR-2, CR-3, CR-4) with $ ranges, status, contractual basis |
+| 3. Ticket–CR Map | All 40 non-in-scope + adjacent tickets mapped to CRs with confidence ratings |
+| 4. Commercial Actions | Top 10 actions with owner, timing, $ impact, dependencies |
+| 5. Risk Register | 10 contractual risks with severity, mitigation, linked CR |
+
+**Working documents added:**
+- `docs/cr-extracts/CR01-Shift-Level-Payroll-Tax.txt` (extracted from docx)
+- `docs/cr-extracts/CR02-Additional-Info-Pay-Advices.txt`
+- `docs/cr-extracts/Project-Evolution.txt`
+- `docs/cr-extracts/Finalised-xlsx-dump.txt`
+- `docs/cr-extracts/agent-a-cr01.md` (Agent A findings)
+- `docs/cr-extracts/agent-b-cr02.md` (Agent B findings)
+- `docs/cr-extracts/agent-c-project-evolution.md` (Agent C findings)
+- `scripts/build_cr_aware_xlsx.py` (deliverable generator)
+
+**Google Sheet note:** 2cloudnine MCP has no `create_spreadsheet` tool, only read/update/format/append. The local xlsx is ready to upload to Google Drive (auto-converts to a native Google Sheet). The existing `Hireup Commercials — JIRA vs Original Scope` Google Sheet is NOT touched. A separate new Sheet will be used once the blank container is created.

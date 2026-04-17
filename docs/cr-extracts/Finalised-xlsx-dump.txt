@@ -1,0 +1,260 @@
+=== SHEET: 1. Executive Summary ===
+Hireup JIRA Scope Analysis — Finalised Report			
+Project	Hireup Payroll Implementation		
+SOW Reference	SOW No. 20250717H		
+SOW Value	$170,000 (fixed price)		
+SOW Date	August 2025		
+Analysis Date	16 April 2026		
+Prepared By	2cloudnine		
+Review Method	Multi-agent independent review (3 passes)		
+CLASSIFICATION SUMMARY			
+Category	Count	% of Total	
+In Scope	63	65%	
+Scope Creep / Feature Request	19	20%	
+Borderline	15	15%	
+Total	97	100%	
+COMMERCIAL EXPOSURE SUMMARY			
+	Low Estimate	High Estimate	% of SOW
+Scope Creep CRs (19 tickets)	$44,000	$59,000	26-35%
+Borderline — Negotiate (7 tickets)	$10,000	$18,000	6-11%
+Borderline — CR (3 tickets)	$5,000	$10,000	3-6%
+Borderline — Absorb (5 tickets)	$0	$0	Goodwill
+Goodwill Concessions	($13,000)	($20,000)	Relationship investment
+Net Recoverable Target	$46,000	$67,000	27-39%
+RECOMMENDED CR PACKAGING			
+CR	Description	Est. Value	Priority
+CR-1	Sleepover Engine Extension (7 tickets)	$20k-$25k	Raise immediately — strongest position
+CR-2	Portable LSL Compliance (3 tickets)	$25k-$35k	Raise immediately — zero ambiguity
+CR-3	Enhancements & Integrations bundle (9 tickets)	$14k-$20k	Raise after CR-1/CR-2 — negotiation flex
+	Package discount (all 3 CRs)	10-15% off	Incentivise single approval
+KEY FINDINGS			
+#	Finding	Commercial Impact	
+1	Sleepover Engine Extension (7 tickets) — SOW Gap 2 is narrowly worded: 'compliance hours at the lower rate'. Minimum top-ups, 18+ hour logic, back-to-back scenarios, OT aggregation, and midday penalties are all beyond this.	Largest CR — $20-25k	
+2	Portable LSL (3 tickets) — New compliance stream not in SOW, Requirements Workbook, or Discovery Workbook.	Separate CR — $25-35k	
+3	Hibiscus Release (PAYM-262) — SOW Section 5 Assumption 8 explicitly excludes future product releases.	CR required for any adoption work	
+4	Simplification Cluster (4 tickets, PAYM-327-330) — Rework of initial designs. SOW commits to one build cycle. Shared accountability.	Negotiate 50/50 cost share	
+5	Custom UI Widget (PAYM-334) — Already built per JIRA comments. Must be commercially reconciled.	Reconcile as consumed work	
+6	Min Contracted Hours (PAYM-271) — JIRA comments acknowledge 'most likely will be a change request'.	CR — client pre-acknowledges	
+TOP ACTIONS			
+#	Action	Timing	
+1	Raise CR-1 (Sleepover) and CR-2 (Portable LSL) with Hireup	Before PPT2 completes	
+2	Resolve Simplification cluster (327-330) — shared accountability discussion	This week	
+3	Flag PAYM-334 (custom widget) — already built, must be reconciled	Next commercial meeting	
+4	Absorb 5 borderline items as goodwill to strengthen CR positions	Proactively communicate	
+5	Prepare formal CR documentation with SOW clause citations	Before client meeting	
+SOW SCOPE REFERENCE			
+Section	Scope		
+3.1	Project Management and Governance		
+3.2	Discovery and Design (SCHADS MA000100 interpretation)		
+3.3	Installation and Configuration (Payroll, Award Interpretation, GL/Netsuite, Salesforce UI)		
+3.4	Data Migration (one UAT, one pre-Go-Live)		
+3.5	Testing (functional testing, UAT, parallel runs — 2 full pay cycles)		
+3.6	Training (end-user and administrator)		
+3.7	Go-Live and Post Go-Live Support (hypercare — 2 full pay cycles)		
+3.8	Consultant Support (meetings, ad hoc, tech support for Hireup integration)		
+SOW SECTION 4 — GAP DELIVERABLES			
+Gap	Description		
+1	Day Penalties / Loading (midnight crossing fix)		
+2	Sleepover Booking Configuration (compliance hours at lower rate)		
+3	Broken Shift — Rest break >= 10 hour ends a broken shift		
+4	Broken Shift Across Pay Periods		
+5	Consolidated Payslips for Retrospective Bookings		
+6	Short Shifts		
+7	Discretionary Allowance display on pay advice		
+Flame Trees Release			
+	Public Holiday Trigger (location-based)		
+	Pay Batch Automation		
+DOCUMENT ABBREVIATIONS			
+Abbreviation	Document		
+SOW	Hireup SOW — Final — August 25.docx (SOW No. 20250717H)		
+RW	Requirements workbook — Hireup Requirements sheet		
+RW-PE	Requirements workbook — Project Evolution sheet		
+DW	Payroll Discovery Workbook FINAL 20260115.xlsx		
+RAID	Hireup — RAID.xlsx		
+TL	Timeline (version 3) High Level.xlsx		
+
+=== SHEET: 2. All Tickets ===
+Ticket	Summary	Type	Status	Priority	Classification	Source References	Explanation
+PAYM-6	Project Planning	Epic	New	Medium	In Scope	SOW 3.1; TL 'Original Timeline' — Project Governance row	SOW 3.1 explicitly includes project management activities. Parent epic.
+PAYM-8	Testing	Epic	New	Medium	In Scope	SOW 3.5; TL 'Revised PPT' — PPT1/PPT2/PPT3 rows	SOW 3.5 commits to functional testing and parallel runs. Parent epic.
+PAYM-9	Go Live	Epic	New	Medium	In Scope	SOW 3.7; TL 'Revised PPT' — Go-Live section	SOW 3.7 covers go-live preparation and hypercare. Parent epic.
+PAYM-12	Schedule Reporting Workshop	Task	New	Medium	In Scope	SOW 3.2; SOW 3.6; RW 'Custom reports and dashboards' (Custom)	Discovery workshop and training on reports/dashboards.
+PAYM-45	Minimum Sleepover is not working as expected	Bug	Open	High	Scope Creep	SOW Gap 2 wording does not cover this	Minimum sleepover top-up (IFA-specific) is bespoke business logic beyond Gap 2 wording.
+PAYM-49	SIT Exit Sign Off	Task	New	Medium	In Scope	SOW 3.5; TL 'Original Timeline' — SIT row	Standard testing gate confirming readiness for UAT.
+PAYM-53	REGRESSION Defect Analysis & Reporting	Task	New	Medium	In Scope	SOW 3.5; TL 'Revised PPT' — Post PPT defect resolution rows	Regression analysis integral to parallel runs.
+PAYM-69	PPT Run 1 (Historical Closed Period)	Task	New	Medium	In Scope	SOW 3.5; TL 'Revised PPT' — PPT1 row	SOW 3.5 commits to parallel run support.
+PAYM-70	PPT2 Run 2 (Current Open Period)	Task	New	Medium	In Scope	SOW 3.5; TL 'Revised PPT' — PPT2 row	Second parallel run using current open period.
+PAYM-71	PPT Run 3 (Cutover Simulation)	Task	New	Medium	In Scope	SOW 3.5; TL 'Revised PPT' — PPT3 row	Final parallel run before go-live.
+PAYM-72	PPT Reconciliation and Variance Analysis	Task	New	Medium	In Scope	SOW 3.5; RW 'Parallel runs & validation'; TL reconciliation row	Core purpose of parallel runs.
+PAYM-73	PPT Defect Resolution & Re Runs	Task	New	Medium	In Scope	SOW 3.5; TL 'Revised PPT' — Post PPT defect resolution rows	Defect resolution between parallel runs.
+PAYM-74	PPT Exit Sign Off	Task	New	Medium	In Scope	SOW 3.5; TL 'Revised PPT' — Go/No-go decision rows	Formal gate confirming system ready for go-live.
+PAYM-80	Delivery of Training	Task	In Review	Medium	In Scope	SOW 3.6; TL 'Revised PPT' — PAYM-80 row	SOW 3.6 commits to in-person end-user sessions.
+PAYM-87	PIA Privacy Assessment for 2c9	Task	Open	Medium	In Scope	SOW Appendix A — Security; RW 'Roles and permissions'	SOW Appendix A commits to security activities.
+PAYM-90	Support Model Approach and Sign Off	Task	Blocked	Medium	In Scope	SOW 3.7; TL 'Original Timeline' — Support Model row	SOW 3.7 covers post go-live support.
+PAYM-91	Support Model Content and Sign Off	Task	New	Medium	In Scope	SOW 3.7; TL 'Original Timeline' — Support Model Content row	Content deliverable for support model.
+PAYM-92	PPT Portal Access & Review	Task	In Review	Medium	In Scope	RW 'Employee portal capabilities' (Standard); DW 'EMPLOYEE & APPROVER PORTAL'	Portal is Standard in RW.
+PAYM-98	Finance GL Report Build — Location requirements	Task	Open	Medium	Scope Creep	Not in SOW, RW, or DW	Dual-location columns on GL report — custom enhancement not in discovery.
+PAYM-112	[Test] Bank ABA File	Story	In Review	Medium	In Scope	SOW 3.3; RW 'Master payroll data setup'; TL Build 2 row	Standard payroll output. Timeline lists as build item.
+PAYM-113	[Test] Super Clearing File	Story	In Review	Medium	In Scope	SOW 3.3; RW 'Stapled super' (Custom); TL Build 3 row	Standard payroll integration. Timeline lists as build item.
+PAYM-114	[Test] ATO Integration	Story	New	Medium	In Scope	SOW 3.3; TL Build 4 row	Standard payroll compliance. Timeline lists as build item.
+PAYM-115	[Test] GL Integration (Netsuite)	Story	New	Medium	In Scope	SOW 3.3 ('GL and cost code set up'); TL Build 5 row	SOW 3.3 explicitly names GL/Netsuite.
+PAYM-121	Build Integration — Project Evolution CR1	Story	In Review	Medium	In Scope	RW-PE 'Project Evolution'; TL Build 11 ('CR1 SO'); RAID R01	CR1 formally approved. Timeline records sign-off.
+PAYM-123	SACS Project Codes	Task	Open	Low	In Scope	RW 'Short shift and penalty pay codes' (Custom); SOW Gap 7	RW includes Custom user story for pay codes.
+PAYM-137	Community Portal approvers & Payroll system users	Task	Open	Medium	In Scope	RW 'Employee portal capabilities'; RW 'Roles and permissions'; DW 'SYSTEM USERS'	Portal and permissions are Standard in RW.
+PAYM-145	Discuss change of State and LSL	Task	Open	Medium	In Scope	SOW 3.2; RW 'Dual leave loading'; DW 'LEAVE RULES'	Discovery activity for LSL accrual.
+PAYM-151	Friday Booking reconciliation report	Task	Open	Medium	Borderline	RW 'Custom reports and dashboards' — self-service training	Could be training outcome. If 2c9 builds, additional work.
+PAYM-152	Sleepover Timing — Hireup internal changes	Task	New	Low	In Scope	SOW Gap 2; SOW 3.1 (Project Management)	Project management — tracking dependencies.
+PAYM-159	Setup custom fields for Portable LSL Registration	Task	Open	Low	Scope Creep	Not in SOW, RW, or DW	Portable LSL not in any scope document.
+PAYM-166	[Nice to have] Slack integration for Payroll alerts	Task	New	Medium	Scope Creep	Not in SOW, RW, or DW	No scope document mentions Slack. Tagged 'Nice to have'.
+PAYM-167	Hireup custom Payslip template	Task	In Review	High	In Scope	SOW Gap 7; RW 'Consolidated pay advice' (Custom)	SOW Gap 7 requires all-inclusive rate on payslips.
+PAYM-172	Include late approvals in Pay Batch [Training]	Task	Open	Medium	In Scope	SOW 3.6; RW 'Off-cycle pays'; TL PAYM-172 row	Training on late-approved bookings. Timeline references ticket.
+PAYM-173	Complete Portable LSL Workbook	Task	Open	Medium	Scope Creep	Not in SOW, RW, or DW	Portable LSL not in any scope document.
+PAYM-174	Sleepover Timing — FairWork award changes	Task	New	Low	In Scope	SOW 3.1; SOW 3.2; RAID risks	Tracking/awareness only — no build requested.
+PAYM-183	Broken shift & Sleepover bookings incorrect	Bug	In Progress	High	In Scope	SOW Gap 2 + Gap 3; RW 'Broken shift logic'; RW 'Sleepovers'	Spans two SOW gap deliverables.
+PAYM-193	Comms to Business to approve retros/tidy data	Task	New	Medium	In Scope	SOW 3.7; RW 'Payroll cutoff and approval workflow'	Go-live preparation.
+PAYM-194	Pay batch creation / automation	Story	In Review	Medium	In Scope	SOW Flame Trees; SOW Section 5 Assumption 8; RW (3 user stories)	SOW explicitly lists as Flame Trees deliverable.
+PAYM-207	Determine best way to enter On-call Allowances	Task	Open	Medium	In Scope	SOW 3.3; DW 'ALLOWANCE PAY CODES'; TL PAYM-207 row	On-call allowances in DW. Timeline references ticket.
+PAYM-214	Test PPT Work schedules and minimum hours	Task	Blocked	Medium	In Scope	SOW 3.5; RW 'Payroll calendar and cut-off'; DW 'PAY SCHEDULES'	Functional testing within SOW 3.5.
+PAYM-217	Review licences and allocations	Task	New	Medium	In Scope	SOW 3.1; SOW 3.7; DW 'SYSTEM USERS'	Standard project governance and go-live readiness.
+PAYM-219	Finalise Public holiday calendars	Task	In Review	Medium	In Scope	SOW Flame Trees (PH Trigger); RW 'PH by shift location'; DW PH sheets	PH Trigger is Flame Trees deliverable.
+PAYM-220	Confirmation of retro approach — paper to ELT	Task	Open	Medium	In Scope	SOW 3.7; SOW 3.1	Go-live preparation governance.
+PAYM-221	Audit log requirements	Task	In Review	Medium	In Scope	RW 'Audit history tracking' (Standard); SOW Appendix A; TL PAYM-221 row	RW Standard. SOW Appendix A security logging.
+PAYM-229	Sync Data from 2c9 to Platform	Epic	New	Medium	In Scope	RW 'Outbound pay results'; RW 'Return of pay results'; TL Build 10; SOW 3.8	RW has Standard and Custom user stories.
+PAYM-232	Auto-approve workflow for open timesheets	Story	New	Medium	Borderline	RW 'Payroll cutoff'; RW 'Pay batch triggering'	Auto-approval is custom scheduled automation beyond standard config.
+PAYM-233	Configure PROD Instance	Epic	In Review	Medium	In Scope	SOW 3.3; TL production uplift rows	SOW 3.3 covers installation and configuration.
+PAYM-234	SCHADS Award rules build	Epic	Open	High	In Scope	SOW 3.2 (SCHADS MA000100); SOW 3.3; RW 10+ user stories; DW 'MA000100 SCHADS'	SOW 3.2 specifically names SCHADS.
+PAYM-235	Configure Payroll engine	Epic	In Review	High	In Scope	SOW 3.3; RW multiple payroll stories; DW multiple sheets	SOW 3.3 covers payroll configuration. Parent epic.
+PAYM-241	Build Portable LSL Reports (5 states)	Task	Open	Medium	Scope Creep	Not in SOW, RW, or DW	Portable LSL not in scope. 5 state reports — significant effort.
+PAYM-242	Configure protected earnings	Task	In Review	Medium	In Scope	SOW 3.3; DW 'DEDUCTION PAY CODES'; RW 'Master payroll data setup'	Standard payroll deduction configuration.
+PAYM-243	[UAT] Test Project Evolution CR Changes	Task	New	Medium	In Scope	SOW 3.5; RW-PE; TL Build 11; RAID R01	Testing of formally approved CR1.
+PAYM-255	Post Go Live items	Epic	New	Medium	In Scope	SOW 3.7; TL Post Go-Live Activities	SOW 3.7 includes hypercare. Parent epic.
+PAYM-261	End User Training	Epic	New	Medium	In Scope	SOW 3.6; TL Training section	SOW 3.6 commits to training. Parent epic.
+PAYM-262	Quarterly Release — Hibiscus	Story	New	Medium	Scope Creep	SOW Section 5 Assumption 8 excludes future releases	'Future product releases are not included'. Any work is a CR.
+PAYM-271	Solution for PPT Min Contracted Hours	Task	Open	Medium	Scope Creep	Not in SOW, RW, or DW	Custom solution. JIRA acknowledges 'most likely a change request'.
+PAYM-272	Solution for Sleepover bookings crossing midday	Task	New	Medium	Borderline	SOW Gap 2; RW 'Sleepovers'	Interim workaround in scope; permanent solution is scope creep.
+PAYM-273	Sleepover — incorrect payment first & active hours	Bug	Open	High	Borderline	SOW Gap 2; RW 'Sleepovers and disturbances'	Base bug in scope; midnight-crossing expansion beyond basic config.
+PAYM-278	Payee Exit, GL, STP [Training]	Task	Open	Medium	In Scope	SOW 3.6; TL PAYM-278 row	Training session. Timeline references ticket.
+PAYM-279	Process for FDVL & Pay advices	Task	Open	Medium	Scope Creep	Not in SOW, RW, or DW	FDVL not in any scope document.
+PAYM-280	Process to create new pay codes & ensure rates generated	Task	New	Medium	Scope Creep	Not in SOW, RW, or DW	Operational documentation/tooling beyond SOW handover.
+PAYM-281	Define template for data load of leave balances	Task	In Review	Medium	In Scope	SOW 3.4 ('Templates provided by 2cloudnine'); DW 'LEAVE RULES'	SOW 3.4 explicitly offers templates.
+PAYM-293	Pay trans import defaulting to $34.59	Bug	In Progress	High	Borderline	SOW 3.3; TL Build 8	Import bug in scope; conflates with CAG/PPL rates (out of scope).
+PAYM-294	Public holidays incorrectly tagged (UX Issue)	Bug	In Progress	Low	In Scope	SOW Flame Trees (PH Trigger); RW 'PH by shift location'; DW PH sheets	PH calendar defect. Flame Trees deliverable.
+PAYM-296	SACS Short shifts calcs incorrect	Bug	In Progress	High	In Scope	SOW Gap 6; RW 'Short shift detection and uplift' (Custom)	SOW Gap 6 lists short shifts. Failure in gap deliverable.
+PAYM-299	Reports and Dashboard, Portal [Training]	Task	Open	Medium	In Scope	SOW 3.6; RW 'Standard payroll reports'; RW 'Custom reports'	Training on reports, dashboards, portal.
+PAYM-301	Investigate Error Log for Bulk Approval	Task	New	Medium	In Scope	SOW 3.5; SOW 3.8	Standard defect triage during testing.
+PAYM-310	Public holiday part day — Afternoon shift not recognised	Task	Open	Medium	In Scope	SOW Flame Trees (PH Trigger); RW 'PH by shift location'; DW PH sheets	Part-day PH defect. Flame Trees deliverable.
+PAYM-311	Default pay rates for CAG & PPL	Task	In Review	High	Borderline	Partially — SOW 3.3; DW does not list CAG/PPL	Config is standard but categories not in Discovery Workbook.
+PAYM-312	Sleepovers > 18 hours in duration incorrect	Bug	In Progress	High	Scope Creep	SOW Gap 2 wording does not cover this	18+ hour sleepovers — complex engine work beyond Gap 2.
+PAYM-313	Sleepovers > 18 hours & back-to-back Sleepovers	Bug	In Progress	High	Scope Creep	SOW Gap 2 wording does not cover this	Back-to-back sleepovers — further beyond Gap 2 than PAYM-312.
+PAYM-314	Daily OT Calc incorrect	Bug	Open	High	In Scope	SOW Gap 1; RW 'Overnight shift logic' (Custom)	Exactly matches SOW Gap 1 midnight-crossing scenario.
+PAYM-318	Short Shift Saturday & PH payment incorrect	Bug	Open	High	In Scope	SOW Gap 6; RW 'Short shift detection and uplift' (Custom)	Defect in SOW Gap 6 deliverable.
+PAYM-319	Minimum Sleepover Rates incorrect	Bug	Open	High	Scope Creep	SOW Gap 2 wording does not cover this	Minimum sleepover top-up concept not in SOW or RW.
+PAYM-324	Daily OT not triggered with Day booking + Sleepover	Bug	In Progress	High	Scope Creep	SOW Gap 2 wording does not cover this	OT aggregation issue, not sleepover configuration.
+PAYM-325	Sleepover crossing midday — incorrect shift penalty	Bug	Open	Medium	Scope Creep	SOW Gap 2 wording does not cover this	System constraint workaround, not sleepover config.
+PAYM-326	Create new pay code — Min Sleepover Mon-Fri	Task	In Review	High	Scope Creep	SOW Gap 2 wording does not cover this	New pay code for mechanism not in SOW.
+PAYM-327	[Simplification 1] Consolidate Pay Code Structure	Task	In Review	High	Borderline	Partially — RW 'rationalise names'; SOW 3.3	Architecture rework exceeds 'rationalise names'. Re-architecture.
+PAYM-328	[Simplification 2] Decouple Sleepover/Remote from Broken Shift	Task	In Review	Medium	Borderline	Partially — SOW Gaps 2, 3; RW Broken shift + Sleepovers	Rework of design. SOW commits to one build cycle.
+PAYM-329	[Simplification 3] Standardise Discretionary Allowance	Task	In Review	Medium	Borderline	Partially — SOW Gap 7	Second iteration of Gap 7. Redesign, not refinement.
+PAYM-330	[Simplification 4] Review Broken/Split Shift Logic	Task	In Review	Medium	Borderline	Partially — SOW Gaps 3, 4, 6; RW broken/short shift stories	Rework due to design complexity.
+PAYM-333	Review Apex code / Changes to flows impacts	Task	New	Medium	Scope Creep	Not in SOW, RW, or DW	Code audit — SOW covers training/handover, not auditing.
+PAYM-334	Create UI Widget for adhoc timesheet entries	Task	New	Medium	Scope Creep	Not in SOW, RW, or DW	Custom LWC — not 'configuration'. Already built.
+PAYM-335	Investigate adjustments for Payee leave events	Task	In Review	Medium	Borderline	Partially — RW 'Dual leave loading' says 'pay the higher'	May be config defect. System defaulting to wrong rate.
+PAYM-336	Picklist of Allowance pay codes	Task	In Review	Medium	In Scope	SOW 3.3; DW 'ALLOWANCE PAY CODES'	Standard Salesforce picklist configuration.
+PAYM-337	Hireup custom Payslip Email body	Task	Open	High	Borderline	Partially — SOW Gap 7; SOW Deliverables	Email wrapper for in-scope payslip. Branding/legal beyond config.
+PAYM-340	End of year processing [Support/Training]	Task	New	Medium	In Scope	SOW 3.6; SOW 3.7	Standard EOFY processing training.
+PAYM-341	Production User Review	Task	In Review	Medium	In Scope	SOW 3.7; SOW Appendix A — Security; DW 'SYSTEM USERS'	Go-live readiness and security obligation.
+PAYM-342	Align on Reversed Transactions display on Pay Advice	Task	In Review	Medium	Borderline	Partially — SOW Gap 5; RW 'Consolidated pay advice'	Gap 5 is consolidation, not reversal display redesign.
+PAYM-344	Public holiday under paid of SW L1	Bug	New	High	In Scope	SOW Flame Trees (PH Trigger); SOW 3.3	PH underpayment is a rate calculation defect.
+PAYM-345	Update missing BSBs in Prod	Bug	Open	Medium	In Scope	SOW 3.3; RW 'Master payroll data setup'	BSB data integrity for Bank ABA payments.
+PAYM-347	Update MV Allowance to $1.04 per KM	Task	In Review	High	Borderline	SOW 3.3; DW 'ALLOWANCE PAY CODES'	Discretionary 5c increase. Trivial but sets precedent.
+PAYM-351	Submitting Leave fails — EmailException error	Task	Open	Medium	In Scope	RW 'Employee portal capabilities'; SOW 3.3	Portal is Standard. Leave failure is product defect.
+PAYM-354	Production Org API Limits	Task	Open	Medium	Scope Creep	Not in SOW, RW, or DW	Operational monitoring — not a build task.
+PAYM-356	New Training pay code — no associated pay rate	Bug	New	Medium	In Scope	SOW 3.3; RW 'Short shift and penalty pay codes'	Config defect — pay code producing $0.
+PAYM-357	Review and check GL Account codes	Task	New	Medium	In Scope	SOW 3.3 ('GL and cost code set up')	SOW 3.3 includes GL setup. Standard QA.
+PAYM-358	Separate pay code for Training (GL 50710/50720)	Task	New	High	Borderline	Partially — RW 'Remote work and training' (Custom)	RW backs dedicated codes; GL mapping is the extension.
+
+=== SHEET: 3. Scope Creep — CR Themes ===
+Scope Creep — Change Request Themes								
+19 tickets classified as Scope Creep, grouped into 9 commercial themes with defensibility assessment								
+Theme	Tickets	Count	Defensibility (1-5)	Commercial Value	Est. $ Range	Why Out of Scope	Recommended CR Wording	Likely Client Pushback
+Sleepover Engine Extension	PAYM-45, 312, 313, 319, 324, 325, 326	7	3-4	L	$20k-$25k	SOW Gap 2 only covers 'compliance hours at the lower rate'. These extend into minimum top-ups, 18+ hour logic, back-to-back scenarios, OT aggregation, midday penalties, new pay codes.	Design, build, test, and deploy an enhanced sleepover interpretation solution covering minimum sleepover top-up logic, long-duration sleepovers, back-to-back sleepovers, OT aggregation, midday penalty treatment, and pay-code changes.	'Sleepovers were in scope' — but Gap 2 wording is narrow
+Portable LSL Compliance	PAYM-159, 173, 241	3	5	L	$25k-$35k	Portable LSL not referenced in SOW, Discovery Workbook, or Requirements Workbook. New compliance workstream.	Design and implement Portable Long Service Leave support including data model changes, requirement definition, and reporting for required state schemes.	Minimal — entirely new domain
+Future Product Release (Hibiscus)	PAYM-262	1	5	L	Deferrable	SOW Section 5 Assumption 8 explicitly excludes future product releases other than Flame Trees.	Plan, test, and coordinate Hibiscus release adoption including impact assessment, configuration uplift, regression testing, and deployment support.	None — SOW Assumption 8 is explicit
+Minimum Contracted Hours	PAYM-271	1	5	M	$10k-$15k	Custom solution for work schedules and automatic top-up not in SOW or discovery artefacts.	Design and implement minimum contracted hours solution for PT/permanent workers including work schedule design, top-up calculation, leave interaction, testing, and deployment.	None — client acknowledges in JIRA as CR
+FDVL / Pay Advice Compliance	PAYM-279	1	4	S	$5k-$8k	FDVL processing and pay advice suppression not in any scope document.	Define, configure, and test FDVL process including payroll treatment, pay advice rules, security/privacy controls, and user guidance.	'FDVL is a legal obligation, you should have known'
+GL Reporting Enhancement	PAYM-98	1	3	S	$5k-$8k	SOW covers GL and Netsuite export but not custom dual-location reporting.	Design and deliver enhanced GL export/report with both primary location and service-delivery location fields.	'GL reporting was in scope, locations are just config'
+Slack / Alerting Integration	PAYM-166	1	5	S	$5k-$8k	No scope document mentions Slack or alerting integrations. Ticket tagged 'Nice to have'.	Design and implement Slack-based payroll alerting for agreed event triggers, message routing, and support procedures.	None — client tagged 'Nice to have'
+Operational Tooling & Monitoring	PAYM-280, 333, 354	3	3-5	M	$8k-$12k	BAU enablement items: pay-code tooling, code/flow audit, API monitoring. Outside implementation deliverables.	Post-implementation operational enablement: BAU payroll admin tooling, technical audit of custom code/flows, and production API monitoring.	'This is just handover documentation'
+Custom UI — Ad Hoc Timesheet	PAYM-334	1	4	L	$15k-$20k	SOW allows configuration of Salesforce UI, not bespoke LWC widget development. Already built.	Design, build, test, and deploy a custom Salesforce UI component for ad hoc timesheet entry workflows.	'We need this for go-live' — already built, reconcile
+NOTES								
+1. PAYM-334 has already been built — reconcile as consumed work. Include in CR-3 at reduced rate (50-60%).								
+2. PAYM-166 is the clearest pure feature request — the ticket itself says 'Nice to have'.								
+3. The sleepover cluster (7 tickets) should be handled as one packaged CR, not seven separate discussions.								
+4. The Simplification cluster (PAYM-327-330) is Borderline but has strong 'one build cycle' argument — see Borderline tab.								
+5. Portable LSL (3 tickets) has the highest defensibility — not mentioned in any scope document whatsoever.								
+6. Total estimated scope creep value: $44k-$59k (26-35% of $170k SOW).								
+
+=== SHEET: 4. Borderline ===
+Borderline Tickets — Assessment and Recommended Actions								
+15 tickets requiring commercial discussion — each should be resolved before client presentation								
+Ticket	Summary	Priority	Lean (% In Scope)	Risk Level	Commercial Approach	Source References	Explanation	Rationale
+PAYM-151	Friday Booking reconciliation report	Medium	40%	L	CR	RW 'Custom reports and dashboards'	Could be training outcome. If 2c9 builds, additional work.	Report building is client-side post-training
+PAYM-232	Auto-approve workflow for open timesheets	Medium	55%	M	Negotiate	RW 'Payroll cutoff'; RW 'Pay batch triggering'	Auto-approval is custom scheduled automation beyond standard config.	Need from in-scope cutoff; scheduled job is net-new
+PAYM-272	Sleepover bookings crossing midday	Medium	65%	M	Absorb	SOW Gap 2; RW 'Sleepovers'	Interim workaround in scope; permanent fix is scope creep.	Interim workaround falls within Gap 2
+PAYM-273	Sleepover — incorrect payment first & active hours	High	60%	M	Absorb	SOW Gap 2; RW 'Sleepovers and disturbances'	Base bug in scope; midnight-crossing expansion beyond basic config.	Base bug clearly in scope; edge is natural extension
+PAYM-293	Pay trans import defaulting to $34.59	High	50%	H	Negotiate	SOW 3.3; TL Build 8	Import bug in scope. Conflates with CAG/PPL rate requirements.	Import bug is ours; root cause tangles with undiscovered rates
+PAYM-311	Default pay rates for CAG & PPL	High	35%	L	CR	Partially — SOW 3.3; DW does not list CAG/PPL	Config is standard but categories not in Discovery Workbook.	CAG/PPL absent from DW — not agreed
+PAYM-327	[Simplification 1] Consolidate Pay Code Structure	High	55%	H	Negotiate	RW 'rationalise names'; SOW 3.3	Architecture rework exceeds 'rationalise names' user story.	Rework — original designs failed for both parties
+PAYM-328	[Simplification 2] Decouple Sleepover/Remote from Broken Shift	Medium	50%	H	Negotiate	SOW Gaps 2, 3; RW Broken shift + Sleepovers	Rework of coupling Hireup requested. SOW commits to one build cycle.	Hireup requested coupling then decoupling — shared fault
+PAYM-329	[Simplification 3] Standardise Discretionary Allowance	Medium	60%	M	Absorb	SOW Gap 7	Second iteration of Gap 7. First introduced non-standard logic.	Gap 7 commits to discretionary allowance — refinement
+PAYM-330	[Simplification 4] Review Broken/Split Shift Logic	Medium	45%	H	Negotiate	SOW Gaps 3, 4, 6; RW broken/short shift stories	Rework of Gaps 3/4/6 due to design complexity.	Complexity neither party foresaw — split cost fairest
+PAYM-335	Investigate adjustments for Payee leave events	Medium	65%	M	Absorb	RW 'Dual leave loading' says 'pay the higher'	System defaulting to 17.5% instead of higher weekend rate.	RW says 'pay the higher' — config defect
+PAYM-337	Hireup custom Payslip Email body	High	40%	L	CR	SOW Gap 7; SOW Deliverables	Email wrapper for in-scope payslip. Branding/legal beyond config.	SOW commits to content, not custom email wrapper
+PAYM-342	Reversed Transactions display on Pay Advice	Medium	55%	M	Negotiate	SOW Gap 5; RW 'Consolidated pay advice'	Gap 5 is consolidation, not reversal display redesign.	Gap 5 covers consolidation; reversal redesign stretches it
+PAYM-347	Update MV Allowance to $1.04 per KM	High	70%	L	Absorb	SOW 3.3; DW 'ALLOWANCE PAY CODES'	Discretionary 5c increase. Trivial effort but sets precedent.	Trivial effort; absorbing buys goodwill
+PAYM-358	Separate pay code for Training (GL 50710/50720)	High	45%	M	Negotiate	RW 'Remote work and training' (Custom)	RW backs dedicated codes; GL mapping is the extension.	RW supports codes; GL mapping is additive
+RESOLUTION BUCKETS								
+Bucket	Tickets	Count	Action	Rationale				
+Likely Absorb	PAYM-272, 273, 329, 335, 347	5	Accept as in scope or goodwill	Low cost (<40 hrs combined). Fixes defects or trivial config. Buying credibility.				
+Negotiate Shared Cost	PAYM-232, 293, 327, 328, 330, 342, 358	7	Propose 50/50 cost share	Genuine shared accountability. Simplification cluster is critical negotiation.				
+Push to CR	PAYM-151, 311, 337	3	Add to CR-3 or standalone mini-CR	New deliverables with no SOW anchor. Low risk of pushback.				
+
+=== SHEET: 5. Review Findings ===
+Finalised Review Findings and Commercial Strategy			
+Independent multi-agent review — 16 April 2026			
+METHODOLOGY			
+Step	Description		
+1. Initial Classification	97 JIRA tickets classified against SOW (Aug 2025), Requirements Workbook, Discovery Workbook, RAID Log, and Project Timeline.		
+2. Multi-Agent Review (Pass 1)	Three independent agents challenged classifications: (a) SOW Gap 2 wording, (b) non-gap in-scope tickets, (c) scope creep/borderline counter-check. 23 tickets reclassified.		
+3. Multi-Agent Review (Pass 2)	Three finalisation agents reviewed: (a) Contractual defensibility scoring (1-5), (b) Borderline lean % and risk, (c) Commercial packaging and negotiation strategy.		
+4. Commercial Packaging	19 scope creep tickets grouped into 3 Change Requests. 15 borderline tickets triaged into Absorb/Negotiate/CR buckets.		
+DEFENSIBILITY SUMMARY			
+Tier	Items	Strength	Notes
+Rock-solid (5/5)	PAYM-159, 166, 173, 241, 262, 271, 333	Very Strong	Zero contractual ambiguity. Hold firm, invoice separately.
+Strong (4/5)	PAYM-45, 279, 312, 313, 319, 326, 334, 354	Strong	Expect 'sleepovers were in scope' noise. Defend with Gap 2 wording.
+Moderate (3/5)	PAYM-98, 280, 324, 325	Softer	Client can argue 'implementation detail'. Consider conceding 280, 325.
+NEGOTIATION STRATEGY			
+#	Recommendation		
+1	Frame as partnership, not penalty. 'These requirements emerged during build and were not in the signed SOW.'		
+2	Lead with CR-1 (Sleepover) and CR-2 (Portable LSL) — strongest contractual positions.		
+3	Offer 10-15% package discount if client approves all three CRs together.		
+4	Absorb 5 borderline tickets as goodwill concession — demonstrates reasonableness.		
+5	Use Simplification cluster (327-330) as 'shared accountability' discussion — propose 50/50 split.		
+6	Position CR-3 as 'items we want to deliver well rather than rush under existing budget'.		
+7	PAYM-334 (custom widget): include in CR-3 at reduced rate (50-60%). First item to concede if needed.		
+8	PAYM-262 (Hibiscus): flag as deferrable post go-live. Easy descope option for client.		
+9	TIMING: Raise CR-1 and CR-2 NOW, before PPT2 completes. Waiting weakens position.		
+CONCESSION STRATEGY			
+Type	Items	Value	Purpose
+Concede (goodwill)	PAYM-98, 280, 325	~$5-8k absorbed	Removes weakest arguments, strengthens credibility
+Concede (borderline absorb)	PAYM-272, 273, 329, 335, 347	~$8-12k absorbed	Low cost items — defects or trivial config
+Total goodwill investment		~$13-20k	Buys credibility to hold firm on $44-59k of genuine scope creep
+SOURCE DOCUMENTS			
+Document	Reference		
+SOW	Hireup SOW — Final — August 25.docx (SOW No. 20250717H, $170,000)		
+Requirements Workbook	HireUp — Requirements workbook (User Stories).xlsx		
+Discovery Workbook	HireUp — Payroll Discovery Workbook FINAL 20260115.xlsx		
+RAID	Hireup — RAID.xlsx		
+Timeline	INTERNAL Hireup Program — Copy of Timeline (version 3) High Level.xlsx		
+JIRA Export	JIRA.xml (97 tickets from PAYM project)		
+
