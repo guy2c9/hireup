@@ -316,3 +316,60 @@ Second multi-agent review pass triggered by discovery of three new CR/process do
 - `scripts/build_cr_aware_xlsx.py` (deliverable generator)
 
 **Google Sheet note:** 2cloudnine MCP has no `create_spreadsheet` tool, only read/update/format/append. The local xlsx is ready to upload to Google Drive (auto-converts to a native Google Sheet). The existing `Hireup Commercials — JIRA vs Original Scope` Google Sheet is NOT touched. A separate new Sheet will be used once the blank container is created.
+
+## 2026-04-17 — PDF Cross-Check & Two Additional Tickets
+
+**Objective:** Verify that every JIRA in the 20260414 Jira report PDF had been classified in the scope analysis, and surface any gaps.
+
+**Method:**
+- Extracted 42 PAYM keys from `Jira report (20260414) - JIRA (3) (1) (1).pdf`
+- Diffed against JIRA.xml (138 keys) and the 97-ticket Finalised analysis
+- Pulled full ticket detail for any missing keys from `JIRA (2).xml` (347-key fresh export)
+
+**Result — 2 tickets were in the PDF but not in the prior analysis:**
+
+| Key | Type | Priority | Status | Labels | Classification |
+|---|---|---|---|---|---|
+| PAYM-176 | Task | Medium | Done | PPT2 | In Scope (SOW 3.3 Installation & Configuration) |
+| PAYM-277 | Bug | High | Not a bug | PPT1 | In Scope (SOW Gap 3 + 18 Feb workshop decision) |
+
+**PAYM-176** — 2c9 Prod Instance setup. Packages installed, custom flows deployed. Core deployment activity, resolved Done 16 Apr 2026. No scope impact.
+
+**PAYM-277** — Hireup raised a defect claiming Broken Shift Allowance should trigger on rolling-12-hour basis across midnight. 2cloudnine rejected as "Not a bug" — 18 Feb 2026 workshop with Hireup + Janine agreed calendar-day logic, all build is based on that. Heidi's 1 Apr comment: *"highly significant change in scope. If rolling 12-hour is now needed, raise as formal CR."* Scope line held; zero commercial impact. Useful evidence of scope discipline for the commercial narrative.
+
+**Files updated:**
+- `docs/Hireup Scope Analysis — Finalised.xlsx` — added PAYM-176 (row 99) and PAYM-277 (row 100); Exec Summary counts 63→65 / 97→99; Review Findings methodology and JIRA export reference updated
+- `docs/Hireup Scope Analysis — Finalised (CR-Aware Update).xlsx` — same additions (synchronised)
+- `docs/Hireup Scope Analysis — Finalised.backup.xlsx` — pre-edit backup created
+
+**Revised classification totals:** 99 tickets = 65 In Scope (66%) / 19 Scope Creep (19%) / 15 Borderline (15%). CR packaging and $108k–$142.5k net recoverable target unchanged.
+
+## 2026-04-17 — Parallel-Format Rebuild of CR-Aware Update Workbook
+
+**Objective:** Rebuild `docs/Hireup Scope Analysis — Finalised (CR-Aware Update).xlsx` so it mirrors the Finalised baseline's exact format (fonts, colours, banners, spacing) instead of diverging into a standalone structure.
+
+**Why:** Initial v1 build overwrote parts of the Exec Summary (pushed original sections up, broke spacing) and was based on the stale 97-ticket structure. Guy flagged that the new items added to the workbook needed consistent font size, colouring, and spacing.
+
+**Method:**
+1. Rebuilt from the latest 99-ticket Finalised.xlsx using `shutil.copy` to preserve all formatting verbatim.
+2. Applied CR-aware updates non-destructively:
+   - In-place cell updates: title suffix "(CR-Aware Update, 17 April 2026)", Analysis Date → 17 April 2026, Review Method → "4 passes — CR-aware"
+   - New column G ("CR Coverage / Status") in All Tickets, populated for 40 tickets (5 reclassified to "Covered by CR")
+   - Appended 4 new sections to Exec Summary **below** the original 83 rows: CR-Aware Recalculation ($108k–$142.5k), 7-CR Packaging, CR-Aware Key Findings, CR-Aware Top Actions
+   - Inserted 3 new CR themes (CR01, CR02, CR-4) into Scope Creep tab before NOTES block
+   - Updated Commercial Approach column for 15 borderline tickets; recalculated Resolution Buckets
+   - Inserted Methodology steps 5–6 into Review Findings; appended CR-Aware Negotiation Strategy section
+3. Enforced consistent palette throughout new content:
+   - Section banners: Calibri 12 bold, fill `D9E2F3`, text `073763`
+   - Table headers: Calibri 11 bold, white on `073763`
+   - Body: Calibri 10 regular, wrap top, thin grey borders
+   - CR-raised rows (CR01, CR02): `FFF2CC` yellow
+   - CR-new/recommended (CR02-Uplift, CR-4): `FCE4D6` peach
+   - CR-covered tickets: `BDD7EE` light blue
+
+**Files:**
+- `docs/Hireup Scope Analysis — Finalised (CR-Aware Update).xlsx` — rebuilt with consistent formatting
+- `scripts/build_finalised_cr_aware_v2.py` — parallel-format builder (based on latest 99-ticket source)
+- `scripts/polish_cr_aware_styles.py` — style normalisation script retained for reference
+
+**Verification:** Original Finalised.xlsx unchanged — independent dump confirmed Analysis Date still "16 April 2026", Review Method still "3 passes", PAYM-167 still "In Scope", 8 columns in All Tickets.
